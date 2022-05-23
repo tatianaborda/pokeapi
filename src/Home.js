@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Button from '@mui/material/Button';
-import Results from './Results';
+import React from "react";
+import './Home.css';
+import {Link} from "react-router-dom";
 
 function Home() {
-  
-    const [name, setname] = useState("");
-  const [Find, setFind] = useState("pikachu");
-  const [Img, setImg] = useState("");
-  const [Type, setType] = useState("");
-  const [Move, setMoves] = useState("");
-  const [Pokemon, setPokemon] = useState([]);
-
-  
-  const Typename = (event) => {
-    setname(event.target.value);
-  };
-
     return (
         <>
-          <Results/>
-          <Button variant="contained">Cargar</Button>
-        </>
+        <div className="wall">
+          <div className="hello">
+            <div className="container">
+            <p>Welcome to the Pokemon World</p>
+            <p>Please press the button to see the magic</p>
+            <button><Link className="linkto" to="/results">GO!</Link></button>
+          </div>
+          </div> 
+        </div> 
+      </>
     );
 
   }

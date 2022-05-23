@@ -1,31 +1,37 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import Spinner from './Spinner';
+import './PokeCard.css';
 
-function PokeCard() {
+function PokeCard({pokemon, loading}) {
   return (
-    <Card sx={{ maxWidth: 300 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="200"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            PIKACHU
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <>
+    {
+      loading ? <Spinner/> :
+      pokemon.map((item)=>{
+        return(
+          <>
+            <div className="card">
+              <div className="block moving-glow">
+                  <img src={item.sprites.front_default} alt="pokemon"/>
+                  </div>
+                  <div>
+                    <h1 style={{textTransform: 'capitalize'}}>
+                      {item.name}
+                    </h1>
+                    <div className="group">
+                      <h4>Movements</h4>
+                        <p>{item.moves[0].move.name}</p>
+                        <p>{item.moves[1].move.name}</p>
+                        <p>{item.moves[2].move.name}</p>
+                    </div>
+                  </div>
+             
+            </div>
+          </>
+        )
+      })
+    }
+      </>    
   );
 }
 

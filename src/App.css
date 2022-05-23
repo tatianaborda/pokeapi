@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:
+    url("\wallpaperflare.com_wallpaper.jpg");
+    background-position: 50% 50%;
+    font-family: 'VT323', monospace;
+  }
