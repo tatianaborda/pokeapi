@@ -7,8 +7,8 @@ import NotFound from './NotFound.js';
 function App() {
   return (
     <>
-      <Routes>
-        <Route exact path="/" element={<Home/>} />
+      <Routes basename={process.env.PUBLIC_URL}>
+        <Route exact path="/pokeapi" element={<Home/>} />
         <Route exact path="/results" element={<Results/>} />
         <Route exact path="/*" element={<NotFound/>} />
       </Routes>
